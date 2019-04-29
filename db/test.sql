@@ -1,0 +1,1 @@
+SELECT id_mk,  from lemanev02.tb_transaksi_jwb where id_mk = 'TI11239';

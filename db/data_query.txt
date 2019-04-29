@@ -1,0 +1,1 @@
+select tb_transaksi_krs.id_mk, tb_matakuliah.nama_mk, tb_matakuliah.nidn, tb_dosen.nama, tb_transaksi_krs.nim, tb_mahasiswa.nama from tb_matakuliah, tb_dosen, tb_mahasiswa, tb_transaksi_krs where tb_dosen.nidn = tb_matakuliah.nidn and tb_mahasiswa.nim = tb_transaksi_krs.nim and tb_matakuliah.id_mk = tb_transaksi_krs.id_mk
