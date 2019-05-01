@@ -17,15 +17,13 @@ $nidn = $_GET['nidn'];
 $conn = new mysqli("localhost", "root", "", "lemanev02");
 
 //identitas dosen
-$sql = $conn->query("SELECT tb_dosen.nama as nama_dosen, tb_matakuliah.nama_mk as nama_mk 
-                    FROM tb_dosen tb_dosen INNER JOIN tb_matakuliah on tb_dosen.nidn = tb_matakuliah.nidn 
+$sql = $conn->query("SELECT tb_dosen.nama as nama_dosen, tb_matakuliah.nama_mk as nama_mk, tb_th_akademik.th_akademik1, tb_th_akademik.th_akademik2
+                    FROM tb_dosen INNER JOIN tb_matakuliah on tb_dosen.nidn = tb_matakuliah.nidn INNER JOIN  tb_th_akademik on tb_matakuliah.id_tahun = tb_th_akademik.id_tahun
                     where tb_dosen.nidn = '$nidn'and tb_matakuliah.id_mk = '$id_mk' ");
 $id = mysqli_fetch_assoc($sql);
 
-$soal_ped = $conn->query("SELECT soal from tb_soal where aspek='pedagogik'");
-$soal_prof = $conn->query("SELECT soal from tb_soal where aspek='profesionalisme'");
-$soal_prib = $conn->query("SELECT soal from tb_soal where aspek='kepribadian'");
-$soal_sos = $conn->query("SELECT soal from tb_soal where aspek='sosial'");
+$peserta = $conn->query("SELECT COUNT(nim) from tb_transaksi_krs WHERE id_mk = '$id_mk'");
+$jml_peserta = mysqli_fetch_assoc($peserta);
 
 //menghitung xbar1
 //$nilai = $conn->query("SELECT AVG(jwb1), AVG(jwb2), AVG(jwb3), AVG(jwb4), AVG(jwb5), AVG(jwb6), AVG(jwb7), AVG(jwb8), AVG(jwb9), AVG(jwb10), AVG(jwb11), AVG(jwb12), AVG(jwb13), AVG(jwb14), AVG(jwb15), AVG(jwb16), AVG(jwb17), AVG(jwb18), AVG(jwb19), AVG(jwb20), AVG(jwb21), AVG(jwb22), AVG(jwb23), AVG(jwb24), AVG(jwb25), AVG(jwb26), AVG(jwb27), AVG(jwb28) from tb_transaksi_jwb where id_mk= '$id_mk'");
@@ -116,11 +114,11 @@ $total_akhir = ($val_ped2 + $val_prof2 + $val_prib2 + $val_sos2) / 4;
                             </div>
                             <div class="form-group">
                                 <label>Jumlah Peserta Matakuliah</label>
-                                <input class="form-control" name="jml_pst" value="NULL" readonly>
+                                <input class="form-control" name="jml_pst" value="<?= $jml_peserta['COUNT(nim)'] ?>" readonly>
                             </div>
                             <div class="form-group">
                                 <label>Tahun Ajaran</label>
-                                <input class="form-control" name="th_ajar" value="NULL" readonly>
+                                <input class="form-control" name="th_ajar" value="<?= $id['th_akademik1'] ?> <?= $id['th_akademik2'] ?>" readonly>
                             </div>
                         </div>
 
@@ -133,27 +131,23 @@ $total_akhir = ($val_ped2 + $val_prof2 + $val_prib2 + $val_sos2) / 4;
                                     <thead>
                                         <tr>
                                             <td>Soal</td>
-                                            <td>Hasil</td>
+                                            <td>Rata Rata Hasil</td>
                                         </tr>
                                     </thead>
                                     <tbody>
 
                                         <?php
                                         $no = 0;
-                                        $tampil_ped = $soal_ped->fetch_assoc();
+                                        foreach ($rowped as $key => $value) {
+                                            $no++;
+                                            ?>
 
-                                        foreach ($tampil_ped as $key1 => $value1) {
-                                            foreach ($rowped as $key => $value) {
-                                                $no++;
-                                                ?>
+                                            <tr>
+                                                <td>Soal <?= $no; ?></td>
+                                                <td><?= round($value, 2); ?></td>
+                                            </tr>
 
-                                                <tr>
-                                                    <td><?= $value1 ?></td>
-                                                    <td><?= round($value, 2); ?></td>
-                                                </tr>
-
-                                            <?php
-                                        }
+                                        <?php
                                     }
                                     ?>
                                     </tbody>
@@ -169,14 +163,14 @@ $total_akhir = ($val_ped2 + $val_prof2 + $val_prib2 + $val_sos2) / 4;
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-soal-prof">
                                     <thead>
                                         <tr>
-                                            <td>No</td>
-                                            <td>Soal </td>
+                                            <td>Soal</td>
+                                            <td>Rata Rata Hasil </td>
                                         </tr>
                                     </thead>
                                     <tbody>
 
                                         <?php
-                                        $no = 0;
+                                        $no = 9;
                                         foreach ($rowprof as $key => $value) {
                                             $no++;
                                             ?>
@@ -203,14 +197,14 @@ $total_akhir = ($val_ped2 + $val_prof2 + $val_prib2 + $val_sos2) / 4;
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-soal-kep">
                                     <thead>
                                         <tr>
-                                            <td>No</td>
                                             <td>Soal</td>
+                                            <td>Rata-Rata Hasil</td>
                                         </tr>
                                     </thead>
                                     <tbody>
 
                                         <?php
-                                        $no = 0;
+                                        $no = 17;
                                         foreach ($rowprib as $key => $value) {
                                             $no++;
                                             ?>
@@ -236,14 +230,14 @@ $total_akhir = ($val_ped2 + $val_prof2 + $val_prib2 + $val_sos2) / 4;
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-soal-sos">
                                     <thead>
                                         <tr>
-                                            <td>No</td>
                                             <td>Soal</td>
+                                            <td>Rata-Rata Hasil</td>
                                         </tr>
                                     </thead>
                                     <tbody>
 
                                         <?php
-                                        $no = 0;
+                                        $no = 23;
                                         foreach ($rowsos as $key => $value) {
                                             $no++;
                                             ?>
@@ -296,12 +290,32 @@ $total_akhir = ($val_ped2 + $val_prof2 + $val_prib2 + $val_sos2) / 4;
                                             <td>Total Score:</td>
                                             <td><?= $total_akhir ?> </td>
                                         </tr>
+                                        <tr>
+                                            <td>Peringkat Anda:</td>
+                                            <td>
+                                                <?php
+                                                if ($total_akhir == "") {
+                                                    echo "";
+                                                } else if ($total_akhir >= 0.00 && $total_akhir <= 2.00) {
+                                                    ?> Pembelajaran tidak memuaskan/TIDAK baik <?php
+                                                } else if ($total_akhir >= 2.01 && $total_akhir <= 2.50) {
+                                                    ?> Pembelajaran kurang memuaskan/KURANG baik <?php
+                                                } else if ($total_akhir >= 2.51 && $total_akhir <= 3.50) {
+                                                    ?> Pembelajaran cukup memuaskan/CUKUP baik <?php
+                                                } else if ($total_akhir >= 3.51 && $total_akhir <= 4.50) {
+                                                    ?> Pembelajaran memuaskan / BAIK <?php
+                                                } else if ($total_akhir >= 4.51 && $total_akhir <= 5.00) {
+                                                    ?> Pembelajaran sangat memuaskan/SANGAT baik <?php
+                                                } 
+                                                ?>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
 
 
-                            <!-- <div><input type="submit" name="simpan" value="Simpan" class="btn btn-primary"></div> -->
+
                         </div>
 
                     </div>
