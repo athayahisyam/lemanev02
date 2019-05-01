@@ -25,8 +25,6 @@ $cek = mysqli_fetch_array($sql2);
 
 $tampil = mysqli_fetch_assoc($sql1);
 
-print_r($cek);
-
 /**
  * TB_MAHASISWA {id, nim, nama, th_masuk, status}
  */
