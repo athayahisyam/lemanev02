@@ -16,10 +16,15 @@ class ComposerStaticInitfa022cc27ace2edccdfdc193674ee705
         ),
     );
 
+    public static $classMap = array (
+        'FPDF' => __DIR__ . '/..' . '/setasign/fpdf/fpdf.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixesPsr0 = ComposerStaticInitfa022cc27ace2edccdfdc193674ee705::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitfa022cc27ace2edccdfdc193674ee705::$classMap;
 
         }, null, ClassLoader::class);
     }
