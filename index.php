@@ -6,6 +6,8 @@ session_start();
 ob_start();
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 
+//tambah baru masbro
+
 if ($_SESSION['admin'] || $_SESSION['mahasiswa'] || $_SESSION['dosen']) {
 
 
