@@ -50,20 +50,20 @@ $tampil = mysqli_fetch_assoc($sql1);
                             <label>NIM</label>
                             <input class="form-control" name="nim" value="<?= $tampil['nim'] ?>" readonly />
                         </div>
-            
+
                         <div class="form-group">
                             <label>Nama</label>
                             <input class="form-control" name="nama" value="<?= $tampil['nama'] ?>" readonly>
                         </div>
                     </form>
                 </div>
-            </div>        
+            </div>
         </div>
         <div class="panel-group">
             <div class="panel panel-default">
 
                 <div class="panel-heading">
-                    Daftar Isian EKD dari KRS <?= $tampil['nama']?>
+                    Daftar Isian EKD dari KRS <?= $tampil['nama'] ?>
                 </div>
 
                 <div class="table-responsive">
@@ -83,31 +83,45 @@ $tampil = mysqli_fetch_assoc($sql1);
                         <tbody>
                             <?php
                             $no = 1;
-                            while ($data = $sql->fetch_assoc()){
+                            while ($data = $sql->fetch_assoc()) {
                                 ?>
                                 <tr>
-                                <td>
-                                    <?= $no++; ?>
-                                </td>
-                                <td>
-                                    <?= $data['nidn']; ?>
-                                </td>
-                                <td>
-                                    <?= $data['nama_dosen']; ?>
-                                </td>
-                                <td>
-                                    <?= $data['id_mk']; ?>
-                                </td>
-                                <td>
-                                    <?= $data['nama_mk']; ?>
-                                </td>                                
-                                <td>
-                                    <a href="?page=kuesioner&aksi=kuesioner&nim=<?= $data['nim'] ?>&id_mk=<?= $data['id_mk']; ?>" class="btn btn-info">Isi Kuesioner</a>
-                                </td>
-                            </tr>
+                                    <td>
+                                        <?= $no++; ?>
+                                    </td>
+                                    <td>
+                                        <?= $data['nidn']; ?>
+                                    </td>
+                                    <td>
+                                        <?= $data['nama_dosen']; ?>
+                                    </td>
+                                    <td>
+                                        <?= $data['id_mk']; ?>
+                                    </td>
+                                    <td>
+                                        <?= $data['nama_mk']; ?>
+                                    </td>
+                                    <?php
+                                    $cek = $conn->query("SELECT nim, id_mk from tb_transaksi_jwb where nim IN ('" . implode("','", $data) . "') AND id_mk IN ('" . implode("','", $data) . "')");
+                                    if (mysqli_num_rows($cek) > 0) {
+                                        ?>
+                                        <td>
+                                            <a href="?page=kuesioner&aksi=kuesioner&nim=<?= $data['nim'] ?>&id_mk=<?= $data['id_mk']; ?>" class="btn btn-info" disabled>Kuesioner Sudah Terisi</a>
+                                        </td>
+                                    <?php
+                                } else {
+                                    ?>
+                                        <td>
+                                            <a href="?page=kuesioner&aksi=kuesioner&nim=<?= $data['nim'] ?>&id_mk=<?= $data['id_mk']; ?>" class="btn btn-info">Isi Kuesioner</a>
+                                        </td>
+                                    <?php
+                                }
+                                ?>
+
+                                </tr>
                             <?php
-                            }
-                            ?>
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div>
