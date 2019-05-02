@@ -108,11 +108,11 @@ $tampil1 = $data1->fetch_assoc();
                                                 <td><?= $no++; ?></td>
                                                 <td><?= $row['soal']; ?></td>
                                                 <td>
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="1">1
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="2">2
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="3">3
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="4">4
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="5">5
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="1" required>1
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="2" required>2
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="3" required>3
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="4" required>4
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="5" required>5
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -145,11 +145,11 @@ $tampil1 = $data1->fetch_assoc();
                                                 <td><?= $no++; ?></td>
                                                 <td><?= $row['soal']; ?></td>
                                                 <td>
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="1">1
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="2">2
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="3">3
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="4">4
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="5">5
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="1" required>1
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="2" required>2
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="3" required>3
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="4" required>4
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="5" required>5
                                                 </td>
                                             </tr>
                                         <?php
@@ -183,11 +183,11 @@ $tampil1 = $data1->fetch_assoc();
                                                 <td><?= $no++; ?></td>
                                                 <td><?= $row['soal']; ?></td>
                                                 <td>
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="1">1
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="2">2
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="3">3
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="4">4
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="5">5
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="1" required>1
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="2" required>2
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="3" required>3
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="4" required>4
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="5" required>5
                                                 </td>
                                             </tr>
                                         <?php
@@ -221,11 +221,11 @@ $tampil1 = $data1->fetch_assoc();
                                                 <td><?= $no++; ?></td>
                                                 <td><?= $row['soal']; ?></td>
                                                 <td>
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="1">1
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="2">2
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="3">3
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="4">4
-                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="5">5
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="1" required>1
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="2" required>2
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="3" required>3
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="4" required>4
+                                                    <input type="radio" name="jwb[<?= $row['id_soal']; ?>]" value="5" required>5
                                                 </td>
                                             </tr>
                                         <?php
