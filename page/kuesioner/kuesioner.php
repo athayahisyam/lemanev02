@@ -30,7 +30,52 @@ $tampil1 = $data1->fetch_assoc();
     <div class="panel-body">
         <div class="row">
             <div class="col-md-12">
-                PETUNJUK PENGISIAN
+                <p class="text-justify">Sesuai dengan yang Saudara/i ketahui, berilah penilaian secara jujur, objektif, dan penuh tanggung jawab terhadap Bapak/Ibu
+                    dosen Saudara/i. Informasi yang Saudara/i berikan hanya akan dipergunakan dalam proses penilaian Kinerja Dosen dan TIDAK AKAN BERPERNGARUH
+                    terhadap status Saudara/i sebagai mahasiswa/i. Penilaian dilakukan terhadap aspek-aspek dalam tabel berikut dengan cara memilih nilai pada angka
+                    yang tercantum (1-5) dengan rentangan:
+                </p>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nilai</th>
+                            <th scope="col">Kategori</th>
+                            <th scope="col">Rentangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Sangat tidak baik/sangat rendah/tidak pernah</td>
+                            <td>0 - 9</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Tidak baik/rendah/jarang</td>
+                            <td>10 - 18</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Biasa/cukup/kadang kadang</td>
+                            <td>19 - 27</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>Baik/tinggi/sering</td>
+                            <td>28 - 36</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>Sangat baik/sangat tinggi/selalu</td>
+                            <td>37 - 45</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
