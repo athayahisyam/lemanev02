@@ -23,6 +23,19 @@ $tampil1 = $data1->fetch_assoc();
 ?>
 
 
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Petunjuk Pengisian
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                PETUNJUK PENGISIAN
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="panel panel-default">
     <div class="panel-heading">
