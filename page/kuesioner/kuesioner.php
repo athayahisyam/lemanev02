@@ -298,13 +298,14 @@ $tampil1 = $data1->fetch_assoc();
                         <div class="tab-pane fade" id="submit" role="tabpanel" aria-labelledby="submit-tab">
 
                             <h3>Kritik yang Membangun Untuk Dosen</h3>
-                            <textarea></textarea>
+                            <textarea class="form-control" rows="5" id="kritik" name="kritik"></textarea>
 
                             <p></p>
 
                             <h3>Saran sebagai Solusi</h3>
-                            <textarea></textarea>
+                            <textarea class="form-control" rows="5" id="saran" name="saran"></textarea>
 
+                            <br />
 
                             <div><input type="submit" name="simpan" value="Simpan" class="btn btn-primary"></div>
                         </div>
@@ -326,6 +327,12 @@ $tampil1 = $data1->fetch_assoc();
 $nim = $_POST['nim'];
 $id_mk = $_POST['id_mk'];
 $jwb = $_POST['jwb'];
+$kritik = $_POST['kritik'];
+$saran = $_POST['saran'];
+
+$pre_kritik = "<pre>$kritik</pre>";
+$pre_saran = "<pre>$saran</pre>";
+
 $validasi = $conn->query("SELECT * from tb_transaksi_jwb where nim = '$nim' and id_mk = '$id_mk'");
 
 $a = array_values($jwb);
@@ -351,22 +358,32 @@ if ($simpan) {
         </script>
     <?php
 } else {
+    // print_r($pre_kritik);
+    // echo "<br/>";
+    // print_r($pre_saran);
+    // exit();
+
     $sql = $conn->query(
         "INSERT INTO tb_transaksi_jwb (nim, id_mk, jwb1, jwb2, jwb3, jwb4, jwb5, jwb6, jwb7, jwb8, jwb9, jwb10, jwb11, 
             jwb12, jwb13, jwb14, jwb15, jwb16, jwb17, jwb18, jwb19, jwb20, jwb21, jwb22, jwb23, jwb24, jwb25, jwb26, jwb27, jwb28) 
             VALUES ('$nim', '$id_mk', '$nilai')
             "
     );
+
+    $sql2 = $conn->query(
+        "INSERT INTO tb_krisar(nim, id_mk, kritik, saran) values('$nim', '$id_mk', '$pre_kritik', '$pre_saran')"
+    );
     if ($sql) {
-        ?>
+        if ($sql2) {
+            ?>
 
-            <script type="text/javascript">
-                alert("Data berhasil disimpan!");
-                window.location.href = "?page=krs";
-            </script>
+                <script type="text/javascript">
+                    alert("Data berhasil disimpan!");
+                    window.location.href = "?page=krs";
+                </script>
 
-        <?php
-
+            <?php
+        }
     }
 }
 }

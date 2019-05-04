@@ -23,6 +23,7 @@ $sql = $conn->query("SELECT tb_dosen.nama as nama_dosen, tb_matakuliah.nama_mk a
 $id = mysqli_fetch_assoc($sql);
 
 $peserta = $conn->query("SELECT COUNT(nim) from tb_transaksi_krs WHERE id_mk = '$id_mk'");
+
 $jml_peserta = mysqli_fetch_assoc($peserta);
 
 //menghitung xbar1
@@ -51,6 +52,8 @@ $val_sos2 = round($val_sos, 2);
 $total_akhir = ($val_ped2 + $val_prof2 + $val_prib2 + $val_sos2) / 4;
 // $round_akhir = round($total_akhir, 2)
 
+$f = $conn->query("SELECT nim, id_mk, kritik, saran FROM tb_krisar where id_mk = '$id_mk'");
+// $krisar = mysqli_fetch_assoc($f);
 
 
 /** FORM NYA */
@@ -390,25 +393,55 @@ $total_akhir = ($val_ped2 + $val_prof2 + $val_prib2 + $val_sos2) / 4;
                                                                                                                                                 ?> Pembelajaran cukup memuaskan/CUKUP baik <?php
                                                                                                                                                                                         } else if ($total_akhir >= 3.51 && $total_akhir <= 4.50) {
                                                                                                                                                                                             ?> Pembelajaran memuaskan / BAIK <?php
-                                                                                                                                                                                                                            } else if ($total_akhir >= 4.51 && $total_akhir <= 5.00) {
-                                                                                                                                                                                                                                ?> Pembelajaran sangat memuaskan/SANGAT baik <?php
-                                                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                                                            ?>
+                                                                                                                                                                                } else if ($total_akhir >= 4.51 && $total_akhir <= 5.00) {
+                                                                                                                                                                                    ?> Pembelajaran sangat memuaskan/SANGAT baik <?php
+                                                                                                                                                                                }
+                                                                                                                                                                                ?>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-
-
-
                         </div>
-
                     </div>
-
-
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Kritik dan Saran dari Mahasiswa
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover" id="dataTables-krisar">
+                    <thead>
+                        <tr>
+                            <td>No</td>
+                            <td>Kritik</td>
+                            <td>Saran</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $no = 1;
+                        while ($q = $f->fetch_assoc()) {
+                            ?>
+
+                            <tr>
+                                <td><?= $no++; ?></td>
+                                <td><?= $q['kritik'] ?></td>
+                                <td><?= $q['saran'] ?></td>
+                            </tr>
+
+                        <?php
+                    }
+                    ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
