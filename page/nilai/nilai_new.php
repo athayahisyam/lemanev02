@@ -57,6 +57,92 @@ $total_akhir = ($val_ped2 + $val_prof2 + $val_prib2 + $val_sos2) / 4;
 
 ?>
 
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Keterangan
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-justify">Berikut ini dilampirkan rentangan nilai akumulasi dan skor:</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nilai</th>
+                            <th scope="col">Kategori</th>
+                            <th scope="col">Rentangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Sangat tidak baik/sangat rendah/tidak pernah</td>
+                            <td>0 - 9</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Tidak baik/rendah/jarang</td>
+                            <td>10 - 18</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Biasa/cukup/kadang kadang</td>
+                            <td>19 - 27</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>Baik/tinggi/sering</td>
+                            <td>28 - 36</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>Sangat baik/sangat tinggi/selalu</td>
+                            <td>37 - 45</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Skor</th>
+                            <th scope="col">Kategori</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">0.00 - 2.00</th>
+                            <td>Pembelajaran tidak memuaskan/tidak baik</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2.01 - 2.50</th>
+                            <td>Pembelajaran kurang memuaskan/kurang baik</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2.51 - 3.50</th>
+                            <td>Pembelajaran Cukup Memuaskan/cukup baik</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3.51 - 4.50</th>
+                            <td>Pembelajaran memuaskan/baik</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4.50 - 5.00</th>
+                            <td>Pembelajaran sangat memuaskan/baik</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -298,16 +384,16 @@ $total_akhir = ($val_ped2 + $val_prof2 + $val_prib2 + $val_sos2) / 4;
                                                     echo "";
                                                 } else if ($total_akhir >= 0.00 && $total_akhir <= 2.00) {
                                                     ?> Pembelajaran tidak memuaskan/TIDAK baik <?php
-                                                } else if ($total_akhir >= 2.01 && $total_akhir <= 2.50) {
-                                                    ?> Pembelajaran kurang memuaskan/KURANG baik <?php
-                                                } else if ($total_akhir >= 2.51 && $total_akhir <= 3.50) {
-                                                    ?> Pembelajaran cukup memuaskan/CUKUP baik <?php
-                                                } else if ($total_akhir >= 3.51 && $total_akhir <= 4.50) {
-                                                    ?> Pembelajaran memuaskan / BAIK <?php
-                                                } else if ($total_akhir >= 4.51 && $total_akhir <= 5.00) {
-                                                    ?> Pembelajaran sangat memuaskan/SANGAT baik <?php
-                                                } 
-                                                ?>
+                                                                                            } else if ($total_akhir >= 2.01 && $total_akhir <= 2.50) {
+                                                                                                ?> Pembelajaran kurang memuaskan/KURANG baik <?php
+                                                                                                                                            } else if ($total_akhir >= 2.51 && $total_akhir <= 3.50) {
+                                                                                                                                                ?> Pembelajaran cukup memuaskan/CUKUP baik <?php
+                                                                                                                                                                                        } else if ($total_akhir >= 3.51 && $total_akhir <= 4.50) {
+                                                                                                                                                                                            ?> Pembelajaran memuaskan / BAIK <?php
+                                                                                                                                                                                                                            } else if ($total_akhir >= 4.51 && $total_akhir <= 5.00) {
+                                                                                                                                                                                                                                ?> Pembelajaran sangat memuaskan/SANGAT baik <?php
+                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                            ?>
                                             </td>
                                         </tr>
                                     </tbody>
