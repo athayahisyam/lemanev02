@@ -49,8 +49,11 @@ $rowsos = mysqli_fetch_assoc($nilaisos);
 $val_sos = array_sum($rowsos) / 5;
 $val_sos2 = round($val_sos, 2);
 
-$total_akhir = ($val_ped2 + $val_prof2 + $val_prib2 + $val_sos2) / 4;
-// $round_akhir = round($total_akhir, 2)
+
+$total_skor = array_sum($rowped) + array_sum($rowprof) + array_sum($rowprib) + array_sum($rowsos);
+$total_skor2 = $total_skor / 28;
+$total_akhir = round($total_skor2, 2);
+
 
 $f = $conn->query("SELECT nim, id_mk, kritik, saran FROM tb_krisar where id_mk = '$id_mk'");
 // $krisar = mysqli_fetch_assoc($f);
@@ -393,10 +396,10 @@ $f = $conn->query("SELECT nim, id_mk, kritik, saran FROM tb_krisar where id_mk =
                                                                                                                                                 ?> Pembelajaran cukup memuaskan/CUKUP baik <?php
                                                                                                                                                                                         } else if ($total_akhir >= 3.51 && $total_akhir <= 4.50) {
                                                                                                                                                                                             ?> Pembelajaran memuaskan / BAIK <?php
-                                                                                                                                                                                } else if ($total_akhir >= 4.51 && $total_akhir <= 5.00) {
-                                                                                                                                                                                    ?> Pembelajaran sangat memuaskan/SANGAT baik <?php
-                                                                                                                                                                                }
-                                                                                                                                                                                ?>
+                                                                                                                                                                                                                            } else if ($total_akhir >= 4.51 && $total_akhir <= 5.00) {
+                                                                                                                                                                                                                                ?> Pembelajaran sangat memuaskan/SANGAT baik <?php
+                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                            ?>
                                             </td>
                                         </tr>
                                     </tbody>
