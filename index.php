@@ -17,12 +17,14 @@ if ($_SESSION['admin'] || $_SESSION['mahasiswa'] || $_SESSION['dosen']) {
 
     <head>
         <meta charset="utf-8" />
+        <link rel="icon" type="image/ico" href="assets/img/favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Lecturer Performance Evaluation</title>
         <!-- BOOTSTRAP STYLES-->
         <link href="assets/css/bootstrap.css" rel="stylesheet" />
-        <!-- <link href="assets/js/bootstrap.min.js" rel="stylesheet" />
-                            <link href="assets/js/jquery-1.10.2.js" rel="stylesheet" /> -->
+        <link href="assets/js/bootstrap.min.js" rel="stylesheet" />
+        <!-- JS -->
+        <link href="assets/js/jquery-1.10.2.js" rel="stylesheet" />
         <!-- FONTAWESOME STYLES-->
         <link href="assets/css/font-awesome.css" rel="stylesheet" />
         <!-- CUSTOM STYLES-->
@@ -31,6 +33,7 @@ if ($_SESSION['admin'] || $_SESSION['mahasiswa'] || $_SESSION['dosen']) {
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
         <!-- TABLE STYLES-->
         <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+
     </head>
 
     <body>
@@ -46,10 +49,10 @@ if ($_SESSION['admin'] || $_SESSION['mahasiswa'] || $_SESSION['dosen']) {
                     <a class="navbar-brand" href="index.html">LEMANEV</a>
                 </div>
                 <div style="color: white;
-                            padding: 15px 50px 5px 50px;
-                            float: right;
-                            font-size: 16px;">
-                            <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a> 
+                                    padding: 15px 50px 5px 50px;
+                                    float: right;
+                                    font-size: 16px;">
+                    <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
                 </div>
             </nav>
             <!-- /. NAV TOP  -->
@@ -103,9 +106,9 @@ if ($_SESSION['admin'] || $_SESSION['mahasiswa'] || $_SESSION['dosen']) {
                                 <a href="?page=soal"><i class="fa fa-dashboard fa-3x"></i>Soal Kuesioner</a>
                             </li>
 
-                            <li>
-                                <a href="?page=nilai"><i class="fa fa-dashboard fa-3x"></i>Rekapan Nilai</a>
-                            </li>
+                            <!-- <li>
+                                                <a href="?page=nilai"><i class="fa fa-dashboard fa-3x"></i>Rekapan Nilai</a>
+                                            </li> -->
 
                         <?php
 
@@ -118,8 +121,8 @@ if ($_SESSION['admin'] || $_SESSION['mahasiswa'] || $_SESSION['dosen']) {
                             </li>
 
                             <!-- <li>
-                                                                                <a href="?page=kuesioner"><i class="fa fa-dashboard fa-3x"></i>Isian Mahasiswa</a>
-                                                                            </li> -->
+                                                                                                <a href="?page=kuesioner"><i class="fa fa-dashboard fa-3x"></i>Isian Mahasiswa</a>
+                                                                                            </li> -->
 
                         <?php
 

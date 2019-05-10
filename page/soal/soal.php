@@ -88,9 +88,9 @@ $ressos = $getsos->fetch_assoc();
                                 </td>
                                 <td>
                                     <a href="?page=soal&aksi=ubah&id_soal=<?= $data['id_soal'] ?>" class="btn btn-info">Ubah</a>
-                                    <a 
+                                    <!-- <a 
                                     onclick="return confirm ('Hapus data?')"
-                                    href="?page=soal&aksi=hapus&id_soal=<?= $data['id_soal'] ?>" class="btn btn-danger">Hapus</a>
+                                    href="?page=soal&aksi=hapus&id_soal=<?= $data['id_soal'] ?>" class="btn btn-danger">Hapus</a> -->
                                 </td>
                             </tr>
                             <?php
