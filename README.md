@@ -1,6 +1,3 @@
-# lemanev02
-Dipresentasikan pada Seminar Nasional FISIP UNS pada tanggal 16 November 2019. Akses prosiding pada:
-
 ## Lecturer Performance Evaluation (Lemanev) Information System
 Sistem Informasi Evaluasi Kinerja Dosen studi Kasus Program Studi Teknik Informatika, UNIDA Gontor. 
 
